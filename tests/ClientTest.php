@@ -1,9 +1,11 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Class HttpTransportTest
  */
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     /**
      * @var \ClickHouse\Client
@@ -15,9 +17,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
-        $this->client = new \ClickHouse\Client('http://127.0.0.1', 8123);
+        $this->client = new \ClickHouse\Client('http://127.0.0.1', 8123, 'default', 12345678);
 
 
         $this->client->execute(
@@ -38,7 +40,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->client->execute('DROP TABLE IF EXISTS ' . $this->tablename);
     }
@@ -133,7 +135,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         ];
         $this->client->insert($this->tablename, $columns, $data);
 
-        $statement = $this->client->select('SELECT * FROM '.$this->tablename);
+        $statement = $this->client->select('SELECT * FROM ' . $this->tablename);
 
         $this->assertEquals(2, $statement->rowsCount());
 

@@ -110,7 +110,7 @@ class Http implements TransportInterface
     {
         $query = new SelectQuery($this, $sql, $bindings);
 
-        $response = $this->httpClient->request('GET', null, [
+        $response = $this->httpClient->request('GET', '', [
             'query' => $this->prepareQueryGetRequest($query),
         ]);
 
@@ -133,7 +133,7 @@ class Http implements TransportInterface
     {
         $query = new InsertQuery($this, $table, $columns, $values);
 
-        $response = $this->httpClient->request('POST', null, [
+        $response = $this->httpClient->request('POST', '', [
             'body' => $query->toSql(),
         ]);
 
@@ -153,7 +153,7 @@ class Http implements TransportInterface
     {
         $query = new ExecuteQuery($this, $sql, $bindings);
 
-        $response = $this->httpClient->request('POST', null, [
+        $response = $this->httpClient->request('POST', '', [
             'body' => $query->toSql(),
         ]);
 

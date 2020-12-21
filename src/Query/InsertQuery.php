@@ -37,6 +37,7 @@ class InsertQuery extends Query
 
         if (0 !== count($columns)) {
             $sql .= ' (' . implode(',', $columns) . ') ';
+            
         }
 
         $sql .= 'VALUES ';

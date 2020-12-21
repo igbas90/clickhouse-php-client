@@ -37,7 +37,7 @@ class Grammar
             return "'" . implode("','", $value) . "'";
 
         if (null === $value)
-            return '';
+            return 'NULL';
 
         return $value;
     }

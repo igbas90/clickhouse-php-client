@@ -10,14 +10,14 @@
     }
   ],
   "require": {
-    "php": ">=5.5.0",
-    "guzzlehttp/guzzle": "~6.0"
+    "php": ">=7.1",
+    "guzzlehttp/guzzle": "^7.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.4.6",
     "mockery/mockery": "~0.9",
     "satooshi/php-coveralls": "~1.0",
-    "fzaninotto/faker": "^1.6"
+    "fzaninotto/faker": "^1.6",
+    "phpunit/phpunit": "^9.5"
   },
   "autoload": {
     "psr-4": {
